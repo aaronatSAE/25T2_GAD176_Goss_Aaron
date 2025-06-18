@@ -22,6 +22,20 @@ namespace TheGrandAlchemistGame
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("You have collided with SOMETHING!");
+            // Check that we have collided with a POTION
+            if (other.CompareTag("Potion") == true)
+            {
+                // We HAVE hit a potion! Do the thing
+                // refer to the potion
+                // do the "Collect()"
+                Debug.Log("You have collided with a potion!");
+                other.GetComponent<StaminaPotion>().Collect();
+            }
+        }
+
         public void AddStamina()
         {
             stamina += 10;
