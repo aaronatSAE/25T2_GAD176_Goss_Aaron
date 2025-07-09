@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TheGrandAlchemistGame
 {
-    public class Coin : MonoBehaviour, ICollectable
+    public class Coin : Treasure, ICollectable
     {
         public void Collect()
         {
@@ -14,7 +14,7 @@ namespace TheGrandAlchemistGame
         // Start is called before the first frame update
         void Start()
         {
-
+            Debug.Log("This coin is worth " + valueInGold + " gold coins.");
         }
 
         // Update is called once per frame
