@@ -13,6 +13,16 @@ namespace TheGrandAlchemistGame
         // When the player presses spacebar,
         // activate the first item in the inventory.
 
+        private void OnEnable()
+        {
+            HologramEvents.onEnemySpawned += ShoutAWarningToThePlayerThatAnEnemyHasSpawned;
+        }
+
+        private void ShoutAWarningToThePlayerThatAnEnemyHasSpawned(Enemy enemyThatWasSpawned)
+        {
+            Debug.Log("Enemy: "+ enemyThatWasSpawned.name);
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
