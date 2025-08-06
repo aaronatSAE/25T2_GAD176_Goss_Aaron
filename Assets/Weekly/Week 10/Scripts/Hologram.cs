@@ -8,12 +8,40 @@ using UnityEngine;
 public class Hologram : MonoBehaviour
 {
     //HologramManager manager;
+    [SerializeField] private int health = 2;
+    [SerializeField] private static float speed = 10.1f;
 
     private void OnEnable()
     {
         //HologramEvents.OnSpacebarPressed.AddListener(HideTheHologram);
         HologramEvents.onSpacebarPressed += HideTheHologram;
         HologramEvents.onReturnPressed += ShowTheHologram;
+    }
+
+    private void Start()
+    {
+        // normal variable
+        print("Health of [" + gameObject.name + "] is [" + health + "]. Nice!");
+
+        // static variable
+        // set speed to a random value
+        speed = Random.Range(1f, 10f);
+        // output that random value
+        print("Speed static variable set to [" + speed + "].");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            // then output the line below, announcing the speed again
+            print("Speed of [" + gameObject.name + "] is [" + speed + "]. Woah!");
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // then output the line below, announcing the speed again
+            print("Current game time is: [" + GameManager.Instance.currentGameTime + "].");
+        }
     }
 
     private void OnDisable()
